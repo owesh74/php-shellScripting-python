@@ -1,0 +1,12 @@
+<?php
+$i = readline("enter a number = ");
+for ($i = 0; $i < 1; $i++) {
+   if($i % 3 == 0  );
+	echo"fizzz\n ";
+}  if($i % 5 ==  0);  {
+  	echo"buzzz\n";
+}  if($i % 5 == 0 && $i % 3 == 0 ); {
+	echo"fizzz , buzzz\n";
+
+	}
+?>

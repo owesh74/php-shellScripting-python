@@ -1,0 +1,9 @@
+nums = [ 1 , 2 , 2 , 4 , 3]
+sum = 0
+
+for(i= 0; i < nums.length; i++)
+	sum = sum + nums[i]
+
+console.log(`sum: ${sum}`)
+
+

@@ -1,0 +1,100 @@
+1. select employees in descending order - salary 
+
+query-:
+	select (salary) from employees order by salary desc; 
+
+2. select all employees from nagpur 
+
+query-:
+	select * from employees where address = "nagpur";
+
+3. select all employees having salary more than average salary 
+
+query-:
+	SELECT salary  FROM  employees WHERE salary > (SELECT AVG(salary) FROM employees);   
+
+4. select sum of salary from table 
+
+query-: 
+	select sum(salary) from employees;
+
+5. select all unique address 
+
+query-:
+	select distinct address from employees; 
+
+6. select details, salary from table
+(details should be concatenation of name and address)
+
+query-:
+	SELECT concat(name, address) FROM  employees;
+
+7. select names of employees having max salary 
+
+query-:
+	SELECT * FROM  employees order by salary  desc;
+
+8. select employees having 2nd max salary 
+
+query-:
+	SELECT * FROM  employees order by salary  desc LIMIT 2,1;
+
+9.count employs by address, order by employee count
+e.g. select count(name,address) from employee
+
+query-:
+ 	SELECT address, COUNT(*) FROM employees group by address;
+
+10. count employees from mumbai only 
+
+query-:
+	SELECT address, COUNT(*) FROM employees where address ="mumbai";
+
+11. select all employees whose names starts or ends with vowels 
+
+query-:
+	SELECT * FROM  employees where name regexp' ^[aeiou]'OR name REGEXP '[aeiou]$';
+
+12. find employee having max salary in particular city
+e.g. 
+----------------------------------------+
+address 	|	name 	|salary	|	
+--------------------------------|-------|
+noida 		|	preeti 	|87000	|
+ahmedabad 	|	anjali 	|60000	|
+bangalore 	|	madhu 	|60000	|
+baroda 		|	varun 	| 56000	|
+----------------------------------------+
+query-:
+	select address,group_concat(name) as name, max(salary) as salary from employees group by address;
+
+13.select top 5 salaried employees
+
+query-:
+	 SELECT * FROM  employees order by salary  desc LIMIT 5,1;   
+
+14.select 2nd highest salaried employees
+
+query-:
+	SELECT * FROM  employees order by salary  desc LIMIT 2,1;
+
+
+15.show cities having total salary more than 200000
+
+query-:
+	SELECT address, SUM(salary) AS" total salary" FROM employees GROUP BY address HAVING  SUM(salary) > 200000;
+
+16.Show all students who appeared for exam
+
+query-:
+	
+	
+17.show student, subject and total marks of students whose total marks are more than 80
+
+query-:
+	select name,group_concat(subject),  sum(marks) as "total marks" from students as s left join marks as m on s.id = m.student_id group by name having sum(marks) >
+80;
+
+
+
+
